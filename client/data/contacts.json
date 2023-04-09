@@ -1,0 +1,26 @@
+{
+  "contacts":
+          [
+            {
+              "FullName": "Peter Parker",
+              "ContactNumber" : "416-555-5555",
+              "EmailAddress": "peterparker@domain.com"
+            },
+
+            {
+              "FullName": "Bruce Wayne",
+              "ContactNumber" : "905-555-5555",
+              "EmailAddress": "brucewayne@isp.com"
+            },
+
+            {
+              "FullName": "Diana Prince",
+              "ContactNumber" : "289-555-5555",
+              "EmailAddress": "dianaprice@domain.com"
+            }
+
+          ]
+}
+
+
+
