@@ -8,9 +8,6 @@
         $("#AboutUsBtn").on("click", () => {
             location.href = "/about";
         });
-        $("main").append(`<p id="MainParagraph" class="mt-3">This is my main paragraph</p>`);
-        $("main").append(`<article>
-                    <p id="ArticleParagraph" class="mt-3">This is my article paragraph</p></article>`);
     }
     function DisplayProductsPage() {
         console.log("Our Products Page");
@@ -95,40 +92,6 @@
     }
     function DisplayLoginPage() {
         console.log("Display Login Page");
-        let messageArea = $("#messageArea");
-        messageArea.hide();
-        $("#loginButton").on("click", function () {
-            let success = false;
-            let newUser = new core.User();
-            $.get("./data/users.json", function (data) {
-                for (const user of data.users) {
-                    let username = document.forms[0].username.value;
-                    let password = document.forms[0].password.value;
-                    console.log(data.user);
-                    if (username === user.Username && password === user.Password) {
-                        newUser.fromJSON(user);
-                        success = true;
-                        break;
-                    }
-                }
-                if (success) {
-                    sessionStorage.setItem("user", newUser.serialize());
-                    messageArea.removeAttr("class").hide();
-                    location.href = "/contact-list";
-                }
-                else {
-                    $("#username").trigger("focus").trigger("select");
-                    messageArea
-                        .addClass("alert alert-danger")
-                        .text("Error: Invalid Login Credentials")
-                        .show();
-                }
-            });
-        });
-        $("#cancelButton").on("click", function () {
-            document.forms[0].reset();
-            location.href = "/home";
-        });
     }
     function DisplayRegisterPage() {
         console.log("Display Register Page");
@@ -147,7 +110,6 @@
     function Start() {
         console.log("App Started!");
         let page_id = $("body")[0].getAttribute("id");
-        CheckLogin();
         switch (page_id) {
             case "home":
                 DisplayHomePage();
